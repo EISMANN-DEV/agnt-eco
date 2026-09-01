@@ -1,0 +1,38 @@
+{
+  "place": "Toy Lake (synthetic)",
+  "note": "Fictional facts for the reference agent. Each is held in an explicit tier; only 'verified' claims may be asserted as fact, and each carries a source.",
+  "facts": [
+    {
+      "claim": "Salvelinus toyensis spawns in autumn in the gravel shallows of Toy Lake.",
+      "tier": "verified",
+      "confidence": 0.92,
+      "sources": [
+        {"title": "A synthetic monograph of Toy Lake coldwater fishes", "ref": "synthetic://example/coldwater#spawning"}
+      ]
+    },
+    {
+      "claim": "Cyprinus fictus remains active at water temperatures up to 30 degC.",
+      "tier": "verified",
+      "confidence": 0.88,
+      "sources": [
+        {"title": "Thermal tolerance of synthetic cyprinids", "ref": "synthetic://example/warmwater#thermal"}
+      ]
+    },
+    {
+      "claim": "Anodonta ficta may benefit from the presence of Cyprinus fictus as a larval host.",
+      "tier": "hypothesis",
+      "confidence": 0.4,
+      "sources": [
+        {"title": "Trait-matching prediction (model-derived, not observed)", "ref": "synthetic://example/hypothesis"}
+      ]
+    },
+    {
+      "claim": "A citizen observer reported a mussel die-off on the north shore during the 2026 warm spell.",
+      "tier": "observation",
+      "confidence": 0.3,
+      "sources": [
+        {"title": "Synthetic citizen-science note (unconfirmed signal)", "ref": "synthetic://example/observation"}
+      ]
+    }
+  ]
+}

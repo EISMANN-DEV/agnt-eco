@@ -1,0 +1,40 @@
+{
+  "place": "Toy Lake (synthetic)",
+  "signal": "water temperature",
+  "readers": [
+    {
+      "species": "Salvelinus toyensis (synthetic coldwater fish)",
+      "unit": "degC",
+      "confidence": 0.9,
+      "source": "synthetic://example/coldwater",
+      "bands": [
+        {"range": "8 to 14", "meaning": "optimal"},
+        {"range": "14 to 18", "meaning": "suboptimal"},
+        {"range": "18 to 22", "meaning": "barrier"},
+        {"range": "> 22", "meaning": "lethal"}
+      ]
+    },
+    {
+      "species": "Cyprinus fictus (synthetic warmwater fish)",
+      "unit": "degC",
+      "confidence": 0.88,
+      "source": "synthetic://example/warmwater",
+      "bands": [
+        {"range": "8 to 16", "meaning": "suboptimal"},
+        {"range": "16 to 26", "meaning": "optimal"},
+        {"range": "26 to 30", "meaning": "suboptimal"},
+        {"range": "> 30", "meaning": "barrier"}
+      ]
+    },
+    {
+      "species": "Anodonta ficta (synthetic freshwater mussel)",
+      "unit": "degC",
+      "confidence": 0.85,
+      "source": "synthetic://example/mussel",
+      "bands": [
+        {"range": "4 to 24", "meaning": "safe"},
+        {"range": "> 26", "meaning": "barrier"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# The core of this repo (verification tier, Parallax, the reference agent) is Python standard
+# library only — no install needed to run `examples/reference_agent.py`.
+#
+# Optional, only for wiring the tier/Parallax to a real property graph instead of the synthetic
+# in-memory sample:
+#   neo4j>=5
+#
+# rubric_judge.py talks to a local OpenAI/Ollama-compatible model over plain HTTP (stdlib urllib);
+# it needs no Python package, only a running local model endpoint (set OLLAMA_URL).

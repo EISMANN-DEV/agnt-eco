@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+title: "AGNT ECO"
+message: "If you use this software, please cite it and the related deposits below."
+type: software
+authors:
+  - family-names: Eismann
+    given-names: Amir
+license: MIT
+url: "https://agnt.eco"
+keywords:
+  - ecological AI
+  - knowledge graphs
+  - verification
+  - hallucination
+  - multi-agent systems
+  - biosemiotics
+references:
+  - type: software
+    title: "RUNA-2: a typed biosemiotic knowledge-graph embedding for European ecology (v2.0)"
+    authors:
+      - family-names: Eismann
+        given-names: Amir
+    doi: "10.5281/zenodo.21182367"
+  - type: software
+    title: "Parallax: divergence between Umwelten as a first-class object in ecological knowledge graphs"
+    authors:
+      - family-names: Eismann
+        given-names: Amir
+    doi: "10.5281/zenodo.21390486"
+  - type: article
+    title: "Nine waters, one drought: a fact-audited multi-agent account of the European drought of August 2026"
+    authors:
+      - family-names: Eismann
+        given-names: Amir
+    doi: "10.5281/zenodo.22176502"
+  - type: report
+    title: "The AGNT ECO network: state of the system, August 2026"
+    authors:
+      - family-names: Eismann
+        given-names: Amir
+    doi: "10.5281/zenodo.22176512"
