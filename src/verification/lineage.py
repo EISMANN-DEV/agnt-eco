@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Make rewrite lineage visible in the number a reader sees.
 
-Claude Science, reviewing the Maas article, named the one structural blind spot in this
-ledger: a broken claim is corrected by minting a NEW hash with a FRESH score, so
-systematic correction shows up in the aggregate as rising confidence. The corpus cannot
-distinguish "this was always right" from "this is the third attempt". The lineage is
-recorded on every rewritten fact — it just never reaches the popover.
+Known limitation this addresses: a broken claim is corrected by minting a NEW fact with a fresh
+hash and a fresh score, so systematic correction shows up in the aggregate as rising confidence.
+A corpus-level average cannot, on its own, distinguish a claim that was always right from one that
+is the third attempt at saying something. The lineage is recorded on every rewritten fact (each
+carries `derived_from`), but a consumer has to walk it explicitly — it is not reflected in the
+confidence number by default.
 
 This computes, for every fact, how far it sits from an original claim, and stores it:
 
@@ -21,14 +22,15 @@ before.
 
     python3 lineage.py            report only
     python3 lineage.py --write    stamp the properties
+
+Config via env: NEO4J_URI (default bolt://localhost:7687), NEO4J_PASSWORD.
 """
-import re, sys
+import os, re, sys
 from neo4j import GraphDatabase
 
 WRITE = "--write" in sys.argv
-pw = re.search(r"NEO4J_PASSWORD',\s*'([^']+)'",
-               open("./app.py").read()).group(1)
-drv = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", pw))
+drv = GraphDatabase.driver(os.getenv("NEO4J_URI", "bolt://localhost:7687"),
+                           auth=("neo4j", os.getenv("NEO4J_PASSWORD", "neo4j")))
 
 with drv.session() as s:
     rows = s.run("""MATCH (f:Fact)

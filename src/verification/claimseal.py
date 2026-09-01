@@ -16,10 +16,12 @@ minted, and the fact is no longer what anything cited.
 
     python3 claimseal.py --seal       # stamp every unsealed fact (once)
     python3 claimseal.py --check      # verify every seal; exit 1 on any mismatch
-    python3 claimseal.py --check --agent maas
+    python3 claimseal.py --check --agent <agent>
+
+Config via env: NEO4J_URI (default bolt://localhost:7687), NEO4J_PASSWORD.
 """
 from __future__ import annotations
-import argparse, hashlib, re, sys
+import argparse, hashlib, os, re, sys
 from neo4j import GraphDatabase
 
 SEP = "\x1f"
@@ -30,9 +32,8 @@ def seal_of(fact_hash: str, claim: str) -> str:
 
 
 def driver():
-    pw = re.search(r"NEO4J_PASSWORD',\s*'([^']+)'",
-                   open("./app.py").read()).group(1)
-    return GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", pw))
+    return GraphDatabase.driver(os.getenv("NEO4J_URI", "bolt://localhost:7687"),
+                                auth=("neo4j", os.getenv("NEO4J_PASSWORD", "neo4j")))
 
 
 def do_seal(s, agent=None):

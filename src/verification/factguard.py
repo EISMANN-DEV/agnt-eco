@@ -118,7 +118,7 @@ if __name__ == "__main__":
         ("MATCH (f:Fact) WHERE f.fact_hash IN $h DETACH DELETE f", False, True),
         ("MATCH (c:SourceChunk) SET c.text = $t", False, False),
         ("MERGE (f:Fact {fact_hash:$h}) SET f.claim=$c", True, False),
-        ("MATCH (s:Species_Maas) DETACH DELETE s", False, False),
+        ("MATCH (s:Species_Example) DETACH DELETE s", False, False),
     ]
     ok = True
     for q, want_claim, want_del in cases:
